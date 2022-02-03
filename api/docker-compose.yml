@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres'
+    environment:
+      POSTGRES_DB: show-me-the-code
+      POSTGRES_PASSWORD: postgrespwd
+      POSTGRES_USER: postgresuser
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'data:/var/lib/postgresql/data'
+  adminer:
+    image: adminer
+    ports:
+      - '8080:8080'
+networks:
+  default:
+    driver: bridge
+volumes:
+  data: null

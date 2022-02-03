@@ -1,0 +1,19 @@
+{
+   "type": "postgres",
+   "host": "127.0.0.1",
+   "port": 5432,
+   "username": "postgresuser",
+   "password": "postgrespwd",
+   "database": "show-me-the-code",
+   "entities": [
+     "./src/shared/entities/*.ts"
+   ],
+   "migrations": [
+     "./src/database/migrations/*.ts"
+   ],
+   "cli": {
+     "entitiesDir": "./src/shared/entities",
+     "migrationsDir": "./src/database/migrations"
+   }
+ }
+ 
