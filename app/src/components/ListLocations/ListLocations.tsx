@@ -2,15 +2,28 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, FlatList } from 'react-native'
 import { api } from '../../services/api'
 import { ColumnHeader } from '../ColumnHeader/ColumnHeader'
-import { LocationsProps } from '../ConsultPlans/ConsultPlans'
 import { Locations } from '../Locations/Locations'
 import { styles } from './styles'
 
-type Props = {
-    data:LocationsProps[];
+type Locations = {
+    id: number,
+    origin: string,
+    destiny: string,
+    pricing: number,
 }
 
-export function ListLocations({data}:Props) {
+export function ListLocations() {
+    const [locations, setLotations] = useState<Locations[]>([])
+
+    useEffect(() => {
+        listLocations();
+    },[]);
+
+    async function listLocations() {
+        const { data } = await api.get('/locations')
+
+        setLotations(data)
+    }
 
     const test = {
         column1: 'Origem',
@@ -24,7 +37,7 @@ export function ListLocations({data}:Props) {
                 <ColumnHeader data={test} />
          
             <FlatList
-                data={data}
+                data={locations}
                 keyExtractor={item => String(item.id)}
                 renderItem={({ item }) => (
                     <Locations data={item} />

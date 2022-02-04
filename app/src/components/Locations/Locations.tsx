@@ -1,10 +1,17 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { LocationsProps } from '../ConsultPlans/ConsultPlans';
 import { styles } from './styles'
 
+
+
+export type LocationProps = {
+    origin: string,
+    destiny: string,
+    pricing: number,
+};
+
 type Props = {
-    data: LocationsProps;
+    data: LocationProps;
 }
 
 
