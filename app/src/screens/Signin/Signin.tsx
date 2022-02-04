@@ -40,7 +40,7 @@ export function Signin() {
 
             await api.post('/users', { username: user, hashPassword, profileId: id, isAdmin: false });
 
-           
+
         } catch (err) {
             console.error(err)
         }
@@ -99,7 +99,11 @@ export function Signin() {
                         }
                     </>
                 }
-                {isRegister ? null :
+                {isRegister ?
+                    <RectButton style={styles.content} onPress={() => setIsRegister(!isRegister)}>
+                        <Text style={styles.register}>Voltar</Text>
+                    </RectButton>
+                    :
                     <RectButton style={styles.content} onPress={() => setIsRegister(!isRegister)}>
                         <Text style={styles.register}>Cadastra-se</Text>
                     </RectButton>
