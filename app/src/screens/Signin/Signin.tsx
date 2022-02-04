@@ -40,7 +40,7 @@ export function Signin() {
             const { data } = await api.post('/profiles ', { name, fone });
             const { id } = data;
 
-            await api.post('/users  ', { username: user, hashPassword, profileId: id, isAdmin: checked });
+            await api.post('/users', { username: user, hashPassword, profileId: id, isAdmin: checked });
 
            
         } catch (err) {

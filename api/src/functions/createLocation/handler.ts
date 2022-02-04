@@ -13,14 +13,16 @@ const Products: ValidatedEventAPIGatewayProxyEvent<
 > = async event => {
   try {
     const { origin, destiny, pricing } = event.body;
-    const { Authorization } = event.headers;
+
+    const token = event.headers.authorization;
+    console.log(token);
     const entity = await createLocationsController.handler(
       {
         origin,
         destiny,
         pricing,
       },
-      Authorization,
+      token,
     );
 
     const { message, statusCode } = entity;

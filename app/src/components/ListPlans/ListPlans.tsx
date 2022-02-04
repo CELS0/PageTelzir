@@ -7,7 +7,7 @@ import { styles } from './styles'
 export type PlansRequestProps = {
     origin: string,
     destiny: string,
-    time: number,
+    time: string,
 };
 
 type Props = {

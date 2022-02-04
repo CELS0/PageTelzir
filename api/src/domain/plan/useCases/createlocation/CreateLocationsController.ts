@@ -37,6 +37,7 @@ class CreateLocationsController {
 
       return response;
     } catch (error) {
+      console.log(error);
       throw formatJSONResponse(error.body, error.statusCode);
     }
   }

@@ -116,7 +116,7 @@ export function Home() {
 
             await api.post('/locations', requestBody, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    authorization: `Bearer ${token}`,
                 }
             });
 
@@ -153,7 +153,7 @@ export function Home() {
 
             await api.post('/plans', requestBody, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    authorization: `Bearer ${token}`,
                 }
             });
 
