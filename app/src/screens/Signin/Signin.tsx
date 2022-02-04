@@ -19,8 +19,6 @@ export function Signin() {
     const [fone, setFone] = useState("");
     const [user, setUser] = useState("");
     const [hashPassword, setHashPassword] = useState("");
-    const [checked, setChecked] = React.useState(false);
-
 
     const [isRegister, setIsRegister] = useState(false);
 
@@ -40,7 +38,7 @@ export function Signin() {
             const { data } = await api.post('/profiles ', { name, fone });
             const { id } = data;
 
-            await api.post('/users', { username: user, hashPassword, profileId: id, isAdmin: checked });
+            await api.post('/users', { username: user, hashPassword, profileId: id, isAdmin: false });
 
            
         } catch (err) {
@@ -71,15 +69,6 @@ export function Signin() {
                             secureTextEntry={true}
                             onChangeText={setHashPassword}
                         />
-                        <View style={styles.checked}>
-                            <Text style={styles.admin}>Administrador: </Text>
-                            <Checkbox
-                                status={checked ? 'checked' : 'unchecked'}
-                                onPress={() => {
-                                    setChecked(!checked);
-                                }}
-                            />
-                        </View>
                         {
                             loading ? <ActivityIndicator color="#ffff" /> :
                                 <Buttonicon

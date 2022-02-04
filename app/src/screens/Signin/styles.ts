@@ -39,13 +39,4 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
     },
-    admin:{
-        // width: '50%',
-        alignSelf: 'flex-start',
-        fontSize: 16,
-        marginTop: 12,
-        marginBottom: 8,
-        marginLeft: -15,
-        color: '#ffff'
-    }
 })
